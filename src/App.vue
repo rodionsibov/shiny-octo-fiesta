@@ -5,21 +5,19 @@
 import { onMounted, ref } from "@vue/runtime-core";
 const multiStepForm = ref(null);
 
-const multiStepF = document.querySelector("[data-multi-step]");
-
 onMounted(() => {
-  const formSteps = multiStepForm.value.querySelectorAll("[data-step]");
-  let currentStep = [...formSteps].find(step => {
-    return step.classList.contains('active')
+  const formSteps = [...multiStepForm.value.querySelectorAll("[data-step]")];
+  let currentStep = formSteps.findIndex((step) => {
+    return step.classList.contains("active");
   })
   console.log(currentStep);
+  
 });
-
 </script>
 
 <template>
   <form data-multi-step ref="multiStepForm">
-    <div data-step="1" class="card active">
+    <div data-step class="card">
       <h3 class="step-title">This is step 1</h3>
       <div class="form-group">
         <label for="email">Email</label>
@@ -31,7 +29,7 @@ onMounted(() => {
       </div>
       <button class="btn-secondary" type="button">Next</button>
     </div>
-    <div data-step="2" class="card">
+    <div data-step class="card">
       <h3 class="step-title">This is step 2</h3>
       <div class="form-group">
         <label for="address">Address</label>
@@ -48,7 +46,7 @@ onMounted(() => {
       <button class="btn-secondary" type="button">Previous</button>
       <button class="btn-secondary" type="button">Next</button>
     </div>
-    <div data-step="3" class="card">
+    <div data-step class="card">
       <h3 class="step-title">This is step 3</h3>
       <div class="form-group">
         <label for="firstName">First Name</label>
