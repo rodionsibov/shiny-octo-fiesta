@@ -9,15 +9,27 @@
       <h3 class="step-title">This is step 1</h3>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" />
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" />
       </div>
       <button class="btn-secondary" type="button">Next</button>
     </div>
-    <div data-step="2" class="card"></div>
+    <div data-step="2" class="card">
+      <h3 class="step-title">This is step 2</h3>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" />
+      </div>
+      <button class="btn-secondary" type="button">Previous</button>
+      <button class="btn-secondary" type="button">Next</button>
+    </div>
     <div data-step="3" class="card">
       <button class="btn-primary" type="submit">Submit</button>
     </div>
