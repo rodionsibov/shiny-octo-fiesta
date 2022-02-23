@@ -9,9 +9,12 @@ onMounted(() => {
   const formSteps = [...multiStepForm.value.querySelectorAll("[data-step]")];
   let currentStep = formSteps.findIndex((step) => {
     return step.classList.contains("active");
-  })
-  console.log(currentStep);
-  
+  });
+
+if (currentStep < 0) {
+    currentStep = 0;
+    formSteps[currentStep].classList.add("active");
+  }
 });
 </script>
 
@@ -27,7 +30,7 @@ onMounted(() => {
         <label for="password">Password</label>
         <input type="password" name="password" id="password" />
       </div>
-      <button class="btn-secondary" type="button">Next</button>
+      <button data-next class="btn-secondary" type="button">Next</button>
     </div>
     <div data-step class="card">
       <h3 class="step-title">This is step 2</h3>
@@ -43,8 +46,8 @@ onMounted(() => {
         <label for="zipcode">Zip Code</label>
         <input type="text" name="zipcode" id="zipcode" />
       </div>
-      <button class="btn-secondary" type="button">Previous</button>
-      <button class="btn-secondary" type="button">Next</button>
+      <button data-next class="btn-secondary" type="button">Previous</button>
+      <button data-previous class="btn-secondary" type="button">Next</button>
     </div>
     <div data-step class="card">
       <h3 class="step-title">This is step 3</h3>
@@ -56,7 +59,7 @@ onMounted(() => {
         <label for="lastName">Last Name</label>
         <input type="text" name="lastName" id="lastName" />
       </div>
-      <button class="btn-secondary" type="button">Previous</button>
+      <button data-previous class="btn-secondary" type="button">Previous</button>
       <button class="btn-primary" type="submit">Submit</button>
     </div>
   </form>
