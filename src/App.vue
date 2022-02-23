@@ -1,11 +1,25 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+
+import { onMounted, ref } from "@vue/runtime-core";
+const multiStepForm = ref(null);
+
+const multiStepF = document.querySelector("[data-multi-step]");
+
+onMounted(() => {
+  const formSteps = multiStepForm.value.querySelectorAll("[data-step]");
+  let currentStep = [...formSteps].find(step => {
+    return step.classList.contains('active')
+  })
+  console.log(currentStep);
+});
+
 </script>
 
 <template>
-  <form data-multi-step>
-    <div data-step="1" class="card">
+  <form data-multi-step ref="multiStepForm">
+    <div data-step="1" class="card active">
       <h3 class="step-title">This is step 1</h3>
       <div class="form-group">
         <label for="email">Email</label>
@@ -20,17 +34,31 @@
     <div data-step="2" class="card">
       <h3 class="step-title">This is step 2</h3>
       <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" />
+        <label for="address">Address</label>
+        <input type="text" name="address" id="address" />
       </div>
       <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" />
+        <label for="city">City</label>
+        <input type="text" name="city" id="city" />
+      </div>
+      <div class="form-group">
+        <label for="zipcode">Zip Code</label>
+        <input type="text" name="zipcode" id="zipcode" />
       </div>
       <button class="btn-secondary" type="button">Previous</button>
       <button class="btn-secondary" type="button">Next</button>
     </div>
     <div data-step="3" class="card">
+      <h3 class="step-title">This is step 3</h3>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName" />
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" id="lastName" />
+      </div>
+      <button class="btn-secondary" type="button">Previous</button>
       <button class="btn-primary" type="submit">Submit</button>
     </div>
   </form>
