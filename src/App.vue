@@ -13,16 +13,28 @@ onMounted(() => {
 
   if (currentStep < 0) {
     currentStep = 0;
-    formSteps[currentStep].classList.add("active");
+    showCurrentStep();
   }
 
   multiStepForm.value.addEventListener("click", (e) => {
+    let incrementor;
     if (e.target.matches("[data-next]")) {
-      currentStep++;
+      incrementor = 1;
     } else if (e.target.matches("[data-previous]")) {
-      currentStep--;
+      incrementor = -1;
     }
-    showCurrentStep();
+
+    if (incrementor == null) {
+      return;
+    }
+    const inputs = [...formSteps[currentStep].querySelectorAll("input")];
+    const allValid = inputs.every((input) => {
+      return input.reportValidity();
+    });
+    if (allValid) {
+      currentStep += incrementor
+      showCurrentStep();
+    }
   });
 
   function showCurrentStep() {
@@ -43,7 +55,7 @@ onMounted(() => {
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" />
+        <input type="password" name="password" id="password" minlength="6" />
       </div>
       <button data-next class="btn-secondary" type="button">Next</button>
     </div>
@@ -61,7 +73,9 @@ onMounted(() => {
         <label for="zipcode">Zip Code</label>
         <input type="text" name="zipcode" id="zipcode" />
       </div>
-      <button data-previous class="btn-secondary" type="button">Previous</button>
+      <button data-previous class="btn-secondary" type="button">
+        Previous
+      </button>
       <button data-next class="btn-secondary" type="button">Next</button>
     </div>
     <div data-step class="card">
