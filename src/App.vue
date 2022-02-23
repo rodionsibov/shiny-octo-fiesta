@@ -11,9 +11,24 @@ onMounted(() => {
     return step.classList.contains("active");
   });
 
-if (currentStep < 0) {
+  if (currentStep < 0) {
     currentStep = 0;
     formSteps[currentStep].classList.add("active");
+  }
+
+  multiStepForm.value.addEventListener("click", (e) => {
+    if (e.target.matches("[data-next]")) {
+      currentStep++;
+    } else if (e.target.matches("[data-previous]")) {
+      currentStep--;
+    }
+    showCurrentStep();
+  });
+
+  function showCurrentStep() {
+    formSteps.forEach((step, index) => {
+      step.classList.toggle("active", index === currentStep);
+    });
   }
 });
 </script>
@@ -46,8 +61,8 @@ if (currentStep < 0) {
         <label for="zipcode">Zip Code</label>
         <input type="text" name="zipcode" id="zipcode" />
       </div>
-      <button data-next class="btn-secondary" type="button">Previous</button>
-      <button data-previous class="btn-secondary" type="button">Next</button>
+      <button data-previous class="btn-secondary" type="button">Previous</button>
+      <button data-next class="btn-secondary" type="button">Next</button>
     </div>
     <div data-step class="card">
       <h3 class="step-title">This is step 3</h3>
@@ -59,7 +74,9 @@ if (currentStep < 0) {
         <label for="lastName">Last Name</label>
         <input type="text" name="lastName" id="lastName" />
       </div>
-      <button data-previous class="btn-secondary" type="button">Previous</button>
+      <button data-previous class="btn-secondary" type="button">
+        Previous
+      </button>
       <button class="btn-primary" type="submit">Submit</button>
     </div>
   </form>
