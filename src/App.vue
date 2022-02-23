@@ -6,6 +6,7 @@
 <template>
   <form data-multi-step>
     <div data-step="1" class="card">
+      <h3 class="step-title">This is step 1</h3>
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" name="email" id="email">
@@ -14,7 +15,7 @@
         <label for="password">Password</label>
         <input type="password" name="password" id="password">
       </div>
-      <button type="button">Next</button>
+      <button class="btn-secondary" type="button">Next</button>
     </div>
     <div data-step="2" class="card"></div>
     <div data-step="3" class="card">
@@ -28,5 +29,6 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin-top: 3rem;
 }
 </style>
