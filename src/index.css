@@ -8,7 +8,7 @@
     }
     
     .btn-secondary {
-      @apply mr-2 mt-4 mb-2 py-2 px-4 bg-gray-200 text-gray-800 font-semibold rounded-lg shadow-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75;
+      @apply mr-2 mt-4 mb-2 py-2 px-4 bg-green-200 text-gray-800 font-semibold rounded-lg shadow-md hover:bg-green-300 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75;
     }
 
     .card {
@@ -41,5 +41,9 @@
 
     .multi-step-form {
         @apply overflow-hidden
+    }
+
+    body {
+        @apply bg-yellow-50
     }
   }

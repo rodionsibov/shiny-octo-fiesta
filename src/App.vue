@@ -103,4 +103,5 @@ onMounted(() => {
   -moz-osx-font-smoothing: grayscale;
   margin-top: 3rem;
 }
+
 </style>
