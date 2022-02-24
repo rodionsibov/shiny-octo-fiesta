@@ -46,7 +46,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <form data-multi-step ref="multiStepForm">
+  <form data-multi-step ref="multiStepForm" class="multi-step-form">
     <div data-step class="card">
       <h3 class="step-title">This is step 1</h3>
       <div class="form-group">

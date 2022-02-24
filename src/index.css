@@ -12,7 +12,11 @@
     }
 
     .card {
-        @apply bg-white border border-gray-800 rounded-lg p-2 max-w-xs m-auto hidden
+        @apply bg-white border border-gray-800 rounded-lg p-2 max-w-xs m-auto absolute opacity-0 
+    }
+
+    .card.active {
+        @apply translate-x-0 opacity-100 static duration-500 
     }
 
     .form-group {
@@ -35,7 +39,7 @@
         @apply text-2xl font-bold mb-4 text-center
     }
 
-    .card.active {
-        @apply block
+    .multi-step-form {
+        @apply overflow-hidden
     }
   }
