@@ -57,7 +57,7 @@ onMounted(() => {
         <label for="password">Password</label>
         <input type="password" name="password" id="password" minlength="6" />
       </div>
-      <button data-next class="btn-secondary" type="button">Next</button>
+      <button data-next class="btn-secondary flex ml-auto" type="button">Next</button>
     </div>
     <div data-step class="card">
       <h3 class="step-title">This is step 2</h3>
@@ -76,7 +76,7 @@ onMounted(() => {
       <button data-previous class="btn-secondary" type="button">
         Previous
       </button>
-      <button data-next class="btn-secondary" type="button">Next</button>
+      <button data-next class="btn-secondary float-right" type="button">Next</button>
     </div>
     <div data-step class="card">
       <h3 class="step-title">This is step 3</h3>
@@ -91,7 +91,7 @@ onMounted(() => {
       <button data-previous class="btn-secondary" type="button">
         Previous
       </button>
-      <button class="btn-primary" type="submit">Submit</button>
+      <button class="btn-primary float-right" type="submit">Submit</button>
     </div>
   </form>
 </template>
