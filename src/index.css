@@ -12,7 +12,7 @@
     }
 
     .card {
-        @apply bg-white border border-gray-800 rounded-lg p-2 max-w-xs m-auto absolute opacity-0 
+        @apply bg-white border border-gray-800 rounded-lg p-2 max-w-xs m-auto translate-x-full absolute opacity-0 
     }
 
     .card.active {
