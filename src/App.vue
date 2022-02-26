@@ -43,10 +43,15 @@ onMounted(() => {
     });
   }
 });
+
+const submit = (event) => {
+  const { email, password } = Object.fromEntries(new FormData(event.target))
+  console.log(email, password);
+}
 </script>
 
 <template>
-  <form data-multi-step ref="multiStepForm" class="multi-step-form">
+  <form data-multi-step ref="multiStepForm" class="multi-step-form" @submit.prevent="submit">
     <div data-step class="card">
       <h3 class="step-title">This is step 1</h3>
       <div class="form-group">
@@ -73,9 +78,7 @@ onMounted(() => {
         <label for="zipcode">Zip Code</label>
         <input type="text" name="zipcode" id="zipcode" />
       </div>
-      <button data-previous class="btn-secondary" type="button">
-        Previous
-      </button>
+      <button data-previous class="btn-secondary" type="button">Previous</button>
       <button data-next class="btn-secondary float-right" type="button">Next</button>
     </div>
     <div data-step class="card">
@@ -88,9 +91,7 @@ onMounted(() => {
         <label for="lastName">Last Name</label>
         <input type="text" name="lastName" id="lastName" />
       </div>
-      <button data-previous class="btn-secondary" type="button">
-        Previous
-      </button>
+      <button data-previous class="btn-secondary" type="button">Previous</button>
       <button class="btn-primary float-right" type="submit">Submit</button>
     </div>
   </form>
@@ -103,5 +104,4 @@ onMounted(() => {
   -moz-osx-font-smoothing: grayscale;
   margin-top: 3rem;
 }
-
 </style>
