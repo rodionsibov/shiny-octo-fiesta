@@ -47,6 +47,8 @@ onMounted(() => {
 const submit = (event) => {
   const { email, password } = Object.fromEntries(new FormData(event.target))
   console.log(email, password);
+  const form = Object.fromEntries(new FormData(event.target))
+  console.log(form);
 }
 </script>
 
